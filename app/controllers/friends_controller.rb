@@ -3,7 +3,7 @@ class FriendsController < ApplicationController
 
   # GET /friends or /friends.json
   def index
-    @friends = Friend.all
+    @friends = current_user.friends
   end
 
   # GET /friends/1 or /friends/1.json
@@ -65,6 +65,6 @@ class FriendsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def friend_params
-      params.expect(friend: [ :first_name, :last_name, :email, :phone, :twitter ])
+      params.expect(friend: [ :first_name, :last_name, :email, :phone, :twitter, :user_id ])
     end
 end
