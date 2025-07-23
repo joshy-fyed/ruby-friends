@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # generates index, show, new, create, update, destroy
   resources :friends
   get "home/index"
